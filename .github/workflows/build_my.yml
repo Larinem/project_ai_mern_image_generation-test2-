@@ -12,4 +12,4 @@ jobs:
       - name: Create Image
         run: sudo -u larry docker build -t webtest2:1.0 -f dockerfile .
       - name: Start
-        run: sudo -u larry docker run -d -p 8080:8080 -p 5137:5137 webtest2:1.0
+        run: sudo -u larry docker run -d -p 8080:8080 -p 5173:5173 webtest2:1.0

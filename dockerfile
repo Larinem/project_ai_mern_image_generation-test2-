@@ -4,13 +4,13 @@ WORKDIR /app
 
 COPY . .
 
-RUN cd /client
+RUN cd ./client
 
 RUN npm install
 
 RUN cd ..
 
-RUN cd /server
+RUN cd ./server
 
 RUN npm install
 

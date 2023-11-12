@@ -8,7 +8,7 @@ WORKDIR /app/client
 
 RUN npm install
 
-RUN npm dev
+RUN npm build
 
 WORKDIR /app/server
 

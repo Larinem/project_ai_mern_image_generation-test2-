@@ -10,6 +10,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: Create Image
-        run: sudo -u larry docker build -t webtest:1.0 -f dockerfile0 .
+        run: sudo -u larry docker build -t webtest2:1.0 -f dockerfile .
       - name: Start
-        run: sudo -u larry docker run -d -p 8000:8000 webtest:1.0
+        run: sudo -u larry docker run -d -p 8000:8000 webtest2:1.0

@@ -14,4 +14,4 @@ RUN npm install
 
 CMD [ "npm", "start"]
 
-EXPOSE 8080 5137
+EXPOSE 8080 5173

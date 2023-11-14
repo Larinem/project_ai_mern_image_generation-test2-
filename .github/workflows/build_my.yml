@@ -10,7 +10,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: Project build
-        run: sudo -u larry docker-compose up 
+        run: sudo -u larry docker compose up 
       # - name: Create Image
       #   run: sudo -u larry docker build -t webtest2:1.0 -f dockerfile .
       # - name: Start

@@ -12,8 +12,8 @@ FROM nginx:latest
 
 COPY --from=builder /app/client/dist /usr/share/nginx/html
 
-CMD [ "~" ]
+WORKDIR /etc/nginx/
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf .
 
 EXPOSE 5173

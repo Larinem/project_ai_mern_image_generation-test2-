@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  back:
+    build:
+      context: .
+      dockerfile: ./client/dockerfile
+    ports:
+      - "8080:8080"      
+  front:
+    build:
+      context: .
+      dockerfile: ./server/dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - back
+

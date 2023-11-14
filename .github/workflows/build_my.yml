@@ -7,10 +7,10 @@ jobs:
   deploy:
     runs-on: [self-hosted]
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v2
       - name: Project build
-        run: docker compose up 
+        run: sudo -u larry docker compose up 
       # - name: Create Image
       #   run: sudo -u larry docker build -t webtest2:1.0 -f dockerfile .
       # - name: Start

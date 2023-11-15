@@ -10,8 +10,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Project build
-        run: sudo -u larry docker compose up 
-      - name: Create Image
-        run: sudo -u larry docker build -t webtest2:1.0 -f dockerfile .
-      - name: Start
-        run: sudo -u larry docker run -d -p 8080:8080 -p 5173:5173 webtest2:1.0
+        run: sudo -u larry BUILD_VERSION_TIME=$(date +%Y%m%d%H%) docker compose up 
+      # - name: Start back
+      #   run: sudo -u larry docker run -d -p 8080:8080 back:$(date +%Y%m%d%H%)
+      # - name: Start front
+      #   run: sudo -u larry docker run -d -p 80:80 front:$(date +%Y%m%d%H%)
+      # - name: Create Image
+      #   run: sudo -u larry docker build -t webtest2:1.0 -f dockerfile .

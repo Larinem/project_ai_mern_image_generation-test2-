@@ -4,7 +4,7 @@ services:
   back:
     build:
       context: .
-      dockerfile: ./client/dockerfile
+      dockerfile: ./client/Dockerfile
     image: back:1 #BUILD_VERSION_TIME=$(date +%Y%m%d%H%) docker-compose up
     ports:
       - "8080:8080"

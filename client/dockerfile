@@ -2,7 +2,7 @@ FROM node:18.16.0 AS builder
 
 WORKDIR /app/client
 
-COPY . /app/client/
+COPY . /app/client
 
 RUN npm install
 

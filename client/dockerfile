@@ -1,6 +1,6 @@
 FROM node:18.16.0 AS builder
 
-WORKDIR /app/client
+WORKDIR /app/client/
 
 COPY . .
 

@@ -11,3 +11,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Project build
         run: docker-compose build
+      # - name: Start back
+      #   run: sudo -u larry docker run -d -p 8080:8080 back:$(date +%Y%m%d%H%)
+      # - name: Start front
+      #   run: sudo -u larry docker run -d -p 80:80 front:$(date +%Y%m%d%H%)
+      # - name: Create Image
+      #   run: sudo -u larry docker build -t webtest2:1.0 -f dockerfile .

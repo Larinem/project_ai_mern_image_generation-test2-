@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Project build
         run: sudo -u larry docker compose up 
-      # - name: Create Image
-      #   run: sudo -u larry docker build -t webtest2:1.0 -f dockerfile .
-      # - name: Start
-      #   run: sudo -u larry docker run -d -p 8080:8080 -p 5173:5173 webtest2:1.0
+      - name: Create Image
+        run: sudo -u larry docker build -t webtest2:1.0 -f dockerfile .
+      - name: Start
+        run: sudo -u larry docker run -d -p 8080:8080 -p 5173:5173 webtest2:1.0

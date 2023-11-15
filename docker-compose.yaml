@@ -5,14 +5,22 @@ services:
     build:
       context: .
       dockerfile: ./client/dockerfile
+    image: back:${BUILD_VERSION_TIME} #BUILD_VERSION_TIME=$(date +%Y%m%d%H%) docker-compose up
     ports:
-      - "8080:8080"      
+      - "8080:8080"
+    # environment:
+    #   - BUILD_VERSION_TIME=${BUILD_VERSION_TIME}
+    command: ["-p 8080:8080", "-d"]      
   front:
     build:
       context: .
       dockerfile: ./server/dockerfile
+    image: front:${BUILD_VERSION_TIME} #BUILD_VERSION_TIME=$(date +%Y%m%d%H%) docker-compose up
     ports:
-      - "5173:5173"
+      - "80:80"
+    # environment:
+    #   - BUILD_VERSION_TIME=${BUILD_VERSION_TIME}
     depends_on:
       - back
+    command: ["-p 80:80", "-d"] 
 

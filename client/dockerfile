@@ -6,7 +6,7 @@ COPY . .
 
 RUN npm install --progress=plain
 
-RUN npm run build
+RUN npm run build --progress=plain
 
 FROM nginx:latest
 

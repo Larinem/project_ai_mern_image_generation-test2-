@@ -1,26 +1,41 @@
 version: '2'
 
 services:
-  back:
-    build:
-      context: .
-      dockerfile: ./client/Dockerfile
-    image: back:1 #BUILD_VERSION_TIME=$(date +%Y%m%d%H%) docker-compose up
-    ports:
-      - "8080:8080"
-    # environment:
-    #   - BUILD_VERSION_TIME=${BUILD_VERSION_TIME}
-    command: ["--progress=plain"]      
   front:
     build:
       context: .
+      dockerfile: ./client/Dockerfile
+    image: back:1
+    ports:
+      - "8080:8080"
+    networks:
+      - networkdev
+    volumes:
+      - /home/larry/log/error:/var/log/nginx/1/
+      - /home/larry/log/access_log:/var/log/nginx/2/
+  back:
+    build:
+      context: .
       dockerfile: ./server/dockerfile
-    image: front:1 #BUILD_VERSION_TIME=$(date +%Y%m%d%H%) docker-compose up
+    image: front:1
     ports:
       - "80:80"
-    # environment:
-    #   - BUILD_VERSION_TIME=${BUILD_VERSION_TIME}
+    networks:
+      - networkdev
     depends_on:
       - back
-    command: ["-p 80:80", "-d"] 
-
+  db:
+    image: postgres:latest 
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: ${{ secrets.SQL_PASSWORD }}
+      POSTGRES_DB: your_database
+    networks:
+      - networkdev
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+networks:
+  networkdev:
+    driver: bridge

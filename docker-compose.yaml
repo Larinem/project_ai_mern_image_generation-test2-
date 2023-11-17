@@ -23,7 +23,7 @@ services:
     networks:
       - networkdev
     depends_on:
-      - back
+      - front
   db:
     image: postgres:latest 
     ports:

@@ -28,10 +28,8 @@ services:
     image: postgres:latest 
     ports:
       - "5432:5432"
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: ${{ secrets.SQL_PASSWORD }}
-      POSTGRES_DB: your_database
+    env_file:
+      - .env
     networks:
       - networkdev
     volumes:

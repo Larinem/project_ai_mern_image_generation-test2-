@@ -22,8 +22,8 @@ jobs:
       #   run: npx eslint .
 
       - name: Project build
-        run: docker-compose sudo -u larry --verbose -f "docker-compose.yaml" up -d --build
-        
+        run: sudo docker-compose -u larry --verbose -f "docker-compose.yaml" up -d --build
+
       # - name: Start back
       #   run: sudo -u larry docker run -d -p 8080:8080 back:$(date +%Y%m%d%H%)
       # - name: Start front

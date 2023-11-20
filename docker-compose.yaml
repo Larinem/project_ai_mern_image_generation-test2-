@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./client/dockerfile
-    image: back:1
+    image: front:1
     ports:
       - "8080:8080"
     networks:
@@ -17,7 +17,7 @@ services:
     build:
       context: .
       dockerfile: ./server/dockerfile
-    image: front:1
+    image: back:1
     ports:
       - "80:80"
     networks:

@@ -26,7 +26,7 @@ services:
       - networkmain
     depends_on:
       - frontprod
-  db:
+  dbrod:
     image: postgres:latest
     ports:
       - "5432:5432"

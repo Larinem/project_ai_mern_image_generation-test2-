@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./client/dockerfile
-    image: front:dev1
+    image: front:2
     container_name: front_dev
     ports:
       - "88:80"
@@ -18,7 +18,7 @@ services:
     build:
       context: .
       dockerfile: ./server/dockerfile
-    image: back:dev1
+    image: back:2
     container_name: back_dev
     ports:
       - "8088:8080"

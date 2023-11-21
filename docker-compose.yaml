@@ -19,6 +19,7 @@ services:
       context: .
       dockerfile: ./server/dockerfile
     image: back:1
+    container_name: back_main 
     ports:
       - "8080:8080"
     networks:
@@ -27,7 +28,6 @@ services:
       - front
   db:
     image: postgres:latest
-    container_name: front_main 
     ports:
       - "5432:5432"
     env_file:

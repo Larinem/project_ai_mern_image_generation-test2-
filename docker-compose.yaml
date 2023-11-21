@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  front:
+  frontstage:
     build:
       context: .
       dockerfile: ./client/dockerfile
@@ -14,7 +14,7 @@ services:
     volumes:
       - /home/larry/log/error:/var/log/nginx/1/
       - /home/larry/log/access_log:/var/log/nginx/2/
-  back:
+  backstage:
     build:
       context: .
       dockerfile: ./server/dockerfile

@@ -9,7 +9,7 @@ services:
     ports:
       - "80:80"
     networks:
-      - networkdev
+      - networkmain
     volumes:
       - /home/larry/log/error:/var/log/nginx/1/
       - /home/larry/log/access_log:/var/log/nginx/2/
@@ -21,7 +21,7 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - networkdev
+      - networkmain
     depends_on:
       - front
   db:
@@ -31,7 +31,7 @@ services:
     env_file:
       - .env
     networks:
-      - networkdev
+      - networkmain
     environment:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
@@ -39,5 +39,5 @@ services:
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
 networks:
-  networkdev:
+  networkmain:
     driver: bridge

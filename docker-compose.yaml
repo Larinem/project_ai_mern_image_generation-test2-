@@ -25,7 +25,7 @@ services:
     networks:
       - networkmain
     depends_on:
-      - front
+      - frontprod
   db:
     image: postgres:latest
     ports:

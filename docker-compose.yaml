@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: ./client/dockerfile
     image: front:1
+    container_name: front_main
     ports:
       - "80:80"
     networks:
@@ -25,7 +26,8 @@ services:
     depends_on:
       - front
   db:
-    image: postgres:latest 
+    image: postgres:latest
+    container_name: front_main 
     ports:
       - "5432:5432"
     env_file:

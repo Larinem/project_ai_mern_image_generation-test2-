@@ -5,9 +5,9 @@ services:
     build:
       context: .
       dockerfile: ./client/dockerfile
-    image: front:1
+    image: front:dev1
     ports:
-      - "80:80"
+      - "88:80"
     networks:
       - networkdev
     volumes:
@@ -17,9 +17,9 @@ services:
     build:
       context: .
       dockerfile: ./server/dockerfile
-    image: back:1
+    image: back:dev1
     ports:
-      - "8080:8080"
+      - "8088:8080"
     networks:
       - networkdev
     depends_on:
@@ -27,7 +27,7 @@ services:
   db:
     image: postgres:latest 
     ports:
-      - "5432:5432"
+      - "5438:5432"
     env_file:
       - .env
     networks:

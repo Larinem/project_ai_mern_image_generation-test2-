@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: ./client/dockerfile
     image: front:dev1
+    container_name: front_dev
     ports:
       - "88:80"
     networks:
@@ -18,6 +19,7 @@ services:
       context: .
       dockerfile: ./server/dockerfile
     image: back:dev1
+    container_name: back_dev
     ports:
       - "8088:8080"
     networks:
